@@ -1,4 +1,13 @@
 # ----------------------------------------------------------------------------------------------------------------------
+# Set S3 Backend for remote state and specify region
+# ----------------------------------------------------------------------------------------------------------------------
+terraform {
+  backend "s3" {}
+}
+provider "aws" {
+  region = "us-west-2"
+}
+# ----------------------------------------------------------------------------------------------------------------------
 # REQUIRE A SPECIFIC TERRAFORM VERSION OR HIGHER
 # This module has been updated with 0.12 syntax, which means it is no longer compatible with any versions below 0.12.
 # ----------------------------------------------------------------------------------------------------------------------
@@ -109,4 +118,3 @@ resource "aws_route53_record" "vault_elb" {
     evaluate_target_health = false
   }
 }
-
